@@ -21,7 +21,7 @@ add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 1
 /** Add support for 3-column footer widgets */
 add_theme_support( 'genesis-footer-widgets', 3 );
 
-
+/*
 genesis_register_sidebar(array(
 	'name'=>'Magazine Sidebar',
 	'id' => 'magazine-alternative',
@@ -40,16 +40,38 @@ genesis_register_sidebar(array(
 	'before_title'  => '<h4><span>',
 	'after_title'   => "</span></h4>\n"
 ));
+*/
+$home_sidebars = array (
+	'home-top-slider'    => 'Home Slider',
+	
+	'home-middle-left'    => 'Home Middle Left',
+	'home-middle-right'    => 'Home Middle Right',
+	'home-middle-left-2'    => 'Home Middle Left 2',
+	'home-middle-right-2'    => 'Home Middle Right 2',	
+	
+	'home-top-1'    => 'Home Bottom Column 1',
+	'home-top-2'    => 'Home Bottom Column 2',
+	'home-top-3'    => 'Home Bottom Column 3',
+	
+	'magazine-alternative'    => 'Magazine Sidebar',
+	'magazine-alternative-alt'    => 'Magazine Sidebar Alt'
+);
+foreach( $home_sidebars as $id => $title ){
+	genesis_register_sidebar( array(
+	'id'          => $id,
+	'name'        => $title,
+	) );
+}
 
 
-add_action( 'genesis_after_content_sidebar_wrap', 'child_do_sidebar' );
+add_action( 'genesis_after_content', 'child_do_sidebar' );
 function child_do_sidebar() {
 	echo '<div id="magazine-sidebar">';
-	echo '<div class="sidebar magazine-sidebar">';
+	echo '<div id="magazine-primary" class="sidebar widget-area">';
 	if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'Magazine Sidebar' ) ) {
 	}
 	echo '</div>';
-	echo '<div class="sidebar magazine-sidebar">';
+	echo '<div id="magazine-secondary" class="sidebar widget-area">';
 	if ( !function_exists( 'dynamic_sidebar' ) || !dynamic_sidebar( 'Magazine Sidebar Alt' ) ) {
 	}
 	echo '</div>';

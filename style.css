@@ -1,13 +1,13 @@
 /*
-    Theme Name: Sample Child Theme
-	Theme URI: http://www.studiopress.com/themes/sample
-	Description: Sample is a two or three column child theme created for the Genesis Framework.
-    Author: Your Business Name
-    Author URI: http://www.yourbusiness.com/
+    Theme Name: M3Palani Child Theme
+	Theme URI: http://www.m3webware.com/m3palani
+	Description: M3Palani is a 4 column child theme for the Genesis Framework.
+    Author: palPalani
+    Author URI: http://www.m3webware.com/
  
-    Version: 1.8
+    Version: 0.1
  
-    Tags: blue, gray, white, one-column, two-columns, three-columns, left-sidebar, right-sidebar, fixed-width, custom-background, custom-header, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments
+    Tags: magazine, fixed-width, custom-background, custom-header, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments
  
     Template: genesis
     Template Version: 1.8
@@ -688,7 +688,7 @@ h6 {
 }
 
 h1 {
-	font-size: 30px;
+	font-size: 24px;
 }
 
 .taxonomy-description h1 {
@@ -698,7 +698,9 @@ h1 {
 h2,
 h2 a,
 h2 a:visited {
-	font-size: 28px;
+	font-size: 18px;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
 }
 
 h2 a,
@@ -719,11 +721,13 @@ h2 a:hover {
 }
 
 h3 {
-	font-size: 24px;
+	font-size: 16px;
+	letter-spacing: 0.07em;
 }
 
 h4 {
-	font-size: 20px;
+	font-size: 14px;
+	letter-spacing: 0.08em;
 }
 
 .taxonomy-description h1,
@@ -746,7 +750,8 @@ h4 {
 }
 
 h5 {
-	font-size: 18px;
+	font-size: 14px;
+	letter-spacing: 0.06em;
 }
 
 
@@ -960,9 +965,9 @@ p.wp-caption-text {
 
 .sidebar {
 	display: inline;
-	float: right;
+	float: left;
 	font-size: 14px;
-	width: 280px;
+	width: 300px;
 }
 
 #sidebar-alt {
@@ -1605,18 +1610,11 @@ div.gform_wrapper .gform_footer {
 	}
 	#magazine-sidebar{
 		float: left;
-		width: 300px;
+		width: 290px;
 	}
-	/*
-	.content-sidebar #content-sidebar-wrap, 
-	.full-width-content #content-sidebar-wrap, 
-	.sidebar-content #content-sidebar-wrap {
-			width: 800px;
-	}
-	*/
-	
+
 	.content-sidebar #content-sidebar-wrap {
-		width: 850px;
+		width: 100%;
 	}
 
 	.content-sidebar #content,
@@ -1641,6 +1639,6 @@ div.gform_wrapper .gform_footer {
 	.content-sidebar #content-sidebar-wrap, 
 	.full-width-content #content-sidebar-wrap, 
 	.sidebar-content #content-sidebar-wrap {
-			width: 960px;
+			width: 100%;
 	}
 }
