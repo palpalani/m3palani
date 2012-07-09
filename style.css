@@ -456,6 +456,34 @@ ul.menu li.sfHover ul,
 	padding: 0 0 0 20px;
 }
 
+/* Home Middle
+------------------------------------------------------------ */
+
+#home-middle {
+	border-bottom: 1px solid #d5d5d5;
+	overflow: hidden;
+}
+
+#home-middle .border {
+	border-bottom: 4px solid #eee;
+	overflow: hidden;
+}
+
+#home-middle .wrap {
+	overflow: hidden;
+	padding: 25px 25px 15px;
+}
+
+.home-middle-left {
+	float: left;
+	width: 290px;
+}
+
+.home-middle-right {
+	float: right;
+	width: 285px;
+}
+
 
 /* Inner
 ------------------------------------------------------------ */
@@ -729,6 +757,11 @@ h4 {
 	font-size: 14px;
 	letter-spacing: 0.08em;
 }
+.home h4 {
+	font-size: 24px;
+	text-transform: uppercase;
+	margin: 0 15px 10px;
+}
 
 .taxonomy-description h1,
 .widget-area h4 {
@@ -790,6 +823,9 @@ h5 {
 	margin: -5px 0 15px;
 }
 
+.home .widget .post-info {
+	margin: -5px 0;
+}
 
 /* Post Meta
 ------------------------------------------------------------ */
@@ -1610,6 +1646,10 @@ div.gform_wrapper .gform_footer {
 	}
 	#magazine-sidebar{
 		float: left;
+		width: 280px;
+		margin-left:10px;
+	}
+	#magazine-sidebar .sidebar{
 		width: 290px;
 	}
 
@@ -1630,11 +1670,15 @@ div.gform_wrapper .gform_footer {
 @media only screen and (min-width : 1224px) {
 	#wrap{
 			width: 1600px;
-			background: blue;
 	}
 	#magazine-sidebar{
 		float: left;
 		width: 600px;
+		margin-left: 10px;
+	}
+	#magazine-secondary{
+		margin-left: 10px;
+		width: 290px;
 	}
 	.content-sidebar #content-sidebar-wrap, 
 	.full-width-content #content-sidebar-wrap, 

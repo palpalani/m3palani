@@ -1,16 +1,16 @@
 <?php
 
-add_action( 'genesis_meta', 'news_home_genesis_meta' );
+add_action( 'genesis_meta', 'm3_home_genesis_meta' );
 /**
  * Add widget support for homepage. If no widgets active, display the default loop.
  *
  */
-function news_home_genesis_meta() {
+function m3_home_genesis_meta() {
 
 	if ( is_active_sidebar( 'home-top' ) || is_active_sidebar( 'home-middle-left' ) || is_active_sidebar( 'home-middle-right' ) || is_active_sidebar( 'home-bottom' ) ) {
 	
 		remove_action( 'genesis_loop', 'genesis_do_loop' );
-		add_action( 'genesis_loop', 'news_home_loop_helper' );
+		add_action( 'genesis_loop', 'm3_home_loop_helper' );
 		//add_filter( 'genesis_pre_get_option_site_layout', '__genesis_return_content_sidebar' );
 		add_filter( 'body_class', 'add_body_class' );
 			function add_body_class( $classes ) {
@@ -26,7 +26,7 @@ function news_home_genesis_meta() {
 	}
 }
 
-function news_home_loop_helper() {
+function m3_home_loop_helper() {
 	global $paged;
      
     if( $paged >= 1 )
