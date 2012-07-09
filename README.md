@@ -1,9 +1,11 @@
 M3Palani Child Theme
 ========
 
-Magazine child theme for Genesis Framework
+M3Palani is magazine style child theme for Genesis Framework by <a href="http://www.m3webware.com/">M3WebWare.com/</a>
 
-<a href="http://www.m3webware.com/">http://www.m3webware.com/m3palani</a>
+Based on <a href="http://www.studiopress.com/free-themes/sample">Sample Child Theme</a> version 1.8. I have added 2 more additional sidebars for supporting 1600 pixels.
+
+Demo: <a href="http://www.m3webware.com/m3palani">http://www.m3webware.com/m3palani</a>
 
 ***INSTALL***
 ======
@@ -28,3 +30,8 @@ Footer #3 - This is the third column of the footer section.
 ***Support***
 ======
 Please visit <a href="http://www.m3webware.com/">http://www.m3webware.com/support</a> for theme support.
+
+***ToDo***
+======
+* Document & settings
+* <320 responsive design

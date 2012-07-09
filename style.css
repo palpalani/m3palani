@@ -5,7 +5,7 @@
     Author: palPalani
     Author URI: http://www.m3webware.com/
  
-    Version: 0.1
+    Version: 0.2
  
     Tags: magazine, fixed-width, custom-background, custom-header, custom-menu, full-width-template, sticky-post, theme-options, threaded-comments
  
@@ -460,6 +460,7 @@ ul.menu li.sfHover ul,
 ------------------------------------------------------------ */
 
 #home-middle {
+	clear: both;
 	border-bottom: 1px solid #d5d5d5;
 	overflow: hidden;
 }
@@ -1080,7 +1081,7 @@ p.wp-caption-text {
 	border-bottom: 1px solid #ddd;
 	margin: 0 0 5px;
 	overflow: hidden;
-	padding: 0 15px 10px;
+	padding: 0 10px 5px;
 }
 
 #footer-widgets .featuredpage .page,
@@ -1558,7 +1559,6 @@ div.gform_wrapper .gform_footer {
 		-webkit-box-shadow: none;
 		box-shadow: none;
 		margin: 0;
-		background: orange;
 	}
 	
 	#description,
@@ -1617,7 +1617,7 @@ div.gform_wrapper .gform_footer {
 	.post,
 	#comments,
 	#respond {
-		padding: 0 20px;
+		padding: 0 5px;
 	}
 
 	.author-box {
@@ -1684,5 +1684,17 @@ div.gform_wrapper .gform_footer {
 	.full-width-content #content-sidebar-wrap, 
 	.sidebar-content #content-sidebar-wrap {
 			width: 100%;
+	}
+}
+
+@media only screen and (max-width :  320px) {
+	.home-middle-left {
+		width: 98%;
+		clear: both;
+	}
+	.home-middle-right {
+		float: left;
+		width: 98%;
+		clear: both;
 	}
 }

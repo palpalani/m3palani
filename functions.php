@@ -21,11 +21,18 @@ function child_do_sidebar() {
 }
 
 function m3palani_setup() {
+	add_filter( 'http_request_args', 'm3_dont_update_m3palani', 5, 2 );
+		
 	/** Add support for custom background */
 	add_theme_support( 'custom-background' );
 
 	/** Add support for custom header */
 	add_theme_support( 'genesis-custom-header', array( 'width' => 960, 'height' => 100 ) );
+	
+	add_action( 'genesis_meta', 'm3_add_viewport_meta_tag' );
+	
+	if (!is_admin())
+		add_action("wp_enqueue_scripts", "m3_google_jquery", 11);
 	
 	add_image_size( 'home-middle-left', 280, 180, TRUE );
 	add_image_size( 'home-middle-right', 50, 50, TRUE );
