@@ -68,3 +68,24 @@ function m3palani_setup() {
 
 }
 add_action( 'after_setup_theme', 'm3palani_setup' );
+
+
+//add_filter('genesis_nav_items', 'sad' );
+add_filter( 'wp_nav_menu_items', 'sad', 30, 2 );
+function sad($menu){
+	return '<div class="navbar navbar-static">
+      <div class="navbar-inner">
+        <div class="container"><button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button><a class="brand" href="./index.html">Bootstrap</a><div class="nav-collapse collapse">'. $menu .'</div></div>
+      </div>
+    </div>';
+}
+
+add_action( 'wp_enqueue_scripts', 'm3_custom_stylesheet' );
+
+function m3_custom_stylesheet() {
+    wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/bootstrap.min.css', array(), PARENT_THEME_VERSION );
+}

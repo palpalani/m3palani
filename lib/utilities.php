@@ -35,6 +35,12 @@ function m3_google_jquery() {
 	wp_deregister_script('jquery');
 	wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js", false, null);
 	wp_enqueue_script('jquery');
+
+	wp_register_script( 'bootstrap', CHILD_URL .'/bootstrap.transition.js' );
+	wp_register_script( 'transition', CHILD_URL .'/bootstrap.min.js' );
+	
+	wp_enqueue_script( 'transition' );
+	wp_enqueue_script( 'bootstrap' );
 }
 
 /*
