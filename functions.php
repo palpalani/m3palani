@@ -7,6 +7,7 @@ define( 'CHILD_THEME_NAME', 'M3Palani Child Theme' );
 define( 'CHILD_THEME_URL', 'http://www.m3webware.com/m3palani' );
 
 require_once( get_stylesheet_directory() . '/lib/utilities.php' );
+require_once( get_stylesheet_directory() . '/lib/bootstrap-walker.php' );
 
 function child_do_sidebar() {
 	echo '<div id="magazine-sidebar">
@@ -71,7 +72,7 @@ add_action( 'after_setup_theme', 'm3palani_setup' );
 
 
 /* Twitter Bootstrap nav bar */
-add_filter( 'wp_nav_menu_items', 'm3_do_bootstrap_navbar', 30 );
+add_filter( 'wp_nav_menu', 'm3_do_bootstrap_navbar', 30 );
 function m3_do_bootstrap_navbar($menu){
 	return '<div class="navbar navbar-static">
       <div class="navbar-inner">
@@ -82,11 +83,74 @@ function m3_do_bootstrap_navbar($menu){
             <span class="icon-bar"></span>
           </button>
 	  <a class="brand" href="'. site_url() .'">'. get_bloginfo('sitename') .'</a>
-	  <div class="nav-collapse collapse">'. $menu .'</div>
+	  <div class="nav-collapse collapse">'. $menu .'
+	  
+	  
+	  
+	  <!--<ul class="nav nav-pills">
+  <li class="active"><a href="#">Regular link</a></li>
+  <li class="dropdown" id="menu1">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
+      Dropdown
+      <b class="caret"></b>
+    </a>
+    <ul class="dropdown-menu">
+      <li><a href="#">Action</a></li>
+      <li><a href="#">Another action</a></li>
+      <li><a href="#">Something else here</a></li>
+      <li class="divider"></li>
+      <li><a href="#">Separated link</a></li>
+    </ul>
+  </li>
+</ul>-->
+	  
+	  
+	  
+	  </div>
 	  </div>
       </div>
     </div>';
 }
+
+function genesis_do_subnav2() {
+
+	/** Do nothing if menu not supported */
+	if ( ! genesis_nav_menu_supported( 'primary' ) )
+		return;
+
+	if ( genesis_get_option( 'nav' ) ) {
+		if ( has_nav_menu( 'primary' ) ) {
+			$args = array(
+				'theme_location' => 'primary',
+				'container'      => '',
+				'menu_class'     => 'nav nav-pills',
+				'echo'           => 0,
+				'depth'	=> 2,
+				'walker'	 => new Bootstrap_Walker_Nav_Menu()
+			);
+
+			$nav = wp_nav_menu( $args );
+		}
+		$nav_output = sprintf( '<div id="nav">%2$s%1$s%3$s</div>', $nav, genesis_structural_wrap( 'nav', 'open', 0 ), genesis_structural_wrap( 'nav', 'close', 0 ) );
+
+		echo apply_filters( 'genesis_do_nav', $nav_output, $nav, $args );
+	}
+
+}
+remove_action( 'genesis_after_header', 'genesis_do_nav' );
+remove_action( 'genesis_after_header', 'genesis_do_subnav' );
+add_action( 'genesis_after_header', 'genesis_do_subnav2', 20 );
+
+/*
+//Filtering a Class in Navigation Menu Item
+add_filter('current-menu-parent' , 'special_nav_class' , 10 , 2);
+function special_nav_class($classes, $item){
+     //if(is_single() && $item->title == 'Blog'){
+             $classes[] = 'nav nav-pills';
+     //}
+     return $classes;
+}
+*/
 
 add_action( 'wp_enqueue_scripts', 'm3_custom_stylesheet' );
 
