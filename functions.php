@@ -35,6 +35,8 @@ function m3palani_setup() {
 	if (!is_admin())
 		add_action("wp_enqueue_scripts", "m3_google_jquery", 11);
 	
+	add_action( 'wp_enqueue_scripts', 'm3_custom_stylesheet' );
+	
 	add_image_size( 'home-middle-left', 280, 180, TRUE );
 	add_image_size( 'home-middle-right', 50, 50, TRUE );
 
@@ -83,38 +85,14 @@ function m3_do_bootstrap_navbar($menu){
             <span class="icon-bar"></span>
           </button>
 	  <a class="brand" href="'. site_url() .'">'. get_bloginfo('sitename') .'</a>
-	  <div class="nav-collapse collapse">'. $menu .'
-	  
-	  
-	  
-	  <!--<ul class="nav nav-pills">
-  <li class="active"><a href="#">Regular link</a></li>
-  <li class="dropdown" id="menu1">
-    <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-      Dropdown
-      <b class="caret"></b>
-    </a>
-    <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </li>
-</ul>-->
-	  
-	  
-	  
-	  </div>
+	  <div class="nav-collapse collapse">'. $menu .'</div>
 	  </div>
       </div>
     </div>';
 }
 
-function genesis_do_subnav2() {
+function m3palani_do_nav() {
 
-	/** Do nothing if menu not supported */
 	if ( ! genesis_nav_menu_supported( 'primary' ) )
 		return;
 
@@ -139,21 +117,4 @@ function genesis_do_subnav2() {
 }
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_after_header', 'genesis_do_subnav2', 20 );
-
-/*
-//Filtering a Class in Navigation Menu Item
-add_filter('current-menu-parent' , 'special_nav_class' , 10 , 2);
-function special_nav_class($classes, $item){
-     //if(is_single() && $item->title == 'Blog'){
-             $classes[] = 'nav nav-pills';
-     //}
-     return $classes;
-}
-*/
-
-add_action( 'wp_enqueue_scripts', 'm3_custom_stylesheet' );
-
-function m3_custom_stylesheet() {
-    wp_enqueue_style( 'custom-stylesheet', CHILD_URL . '/bootstrap.min.css', array(), PARENT_THEME_VERSION );
-}
+add_action( 'genesis_after_header', 'm3palani_do_nav' );
