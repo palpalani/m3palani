@@ -70,16 +70,20 @@ function m3palani_setup() {
 add_action( 'after_setup_theme', 'm3palani_setup' );
 
 
-//add_filter('genesis_nav_items', 'sad' );
-add_filter( 'wp_nav_menu_items', 'sad', 30, 2 );
-function sad($menu){
+/* Twitter Bootstrap nav bar */
+add_filter( 'wp_nav_menu_items', 'm3_do_bootstrap_navbar', 30 );
+function m3_do_bootstrap_navbar($menu){
 	return '<div class="navbar navbar-static">
       <div class="navbar-inner">
-        <div class="container"><button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <div class="container">
+	<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button><a class="brand" href="./index.html">Bootstrap</a><div class="nav-collapse collapse">'. $menu .'</div></div>
+          </button>
+	  <a class="brand" href="'. site_url() .'">'. get_bloginfo('sitename') .'</a>
+	  <div class="nav-collapse collapse">'. $menu .'</div>
+	  </div>
       </div>
     </div>';
 }
